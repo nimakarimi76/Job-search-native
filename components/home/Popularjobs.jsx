@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -20,10 +20,12 @@ const Popularjobs = () => {
     num_pages: 1,
   });
 
+  const [selectedJob, setSelectedJob] = useState();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Popularjobs</Text>
+        <Text style={styles.headerTitle}>Popular Jobs</Text>
         <TouchableOpacity>
           <Text style={styles.headerBtn}>Show All</Text>
         </TouchableOpacity>
@@ -48,15 +50,6 @@ const Popularjobs = () => {
                 // onPress={() => router.push(`/job/${item.id}`)}
               >
                 <PopularJobCard item={item} selectedJob={item} />
-                {/* <View style={styles.cardHeader}>
-                  <Text style={styles.cardHeaderTitle}>{item.title}</Text>
-                  <Text style={styles.cardHeaderSubTitle}>{item.company}</Text>
-                </View>
-
-                <View style={styles.cardBody}>
-                  <Text style={styles.cardBodyTitle}>{item.location}</Text>
-                  <Text style={styles.cardBodySubTitle}>{item.type}</Text>
-                </View> */}
               </TouchableOpacity>
             )}
           />

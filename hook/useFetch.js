@@ -6,7 +6,7 @@ const rapidApiKey = RAPID_API_KEY;
 const useFetch = (endpoint, query) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const options = {
     method: "GET",
@@ -20,19 +20,19 @@ const useFetch = (endpoint, query) => {
   };
 
   const fetchData = async () => {
-    setLoading(true);
+    setIsLoading(true);
 
     try {
       const response = await axios.request(options);
       setData(response.data.data);
-      setLoading(false);
+      setIsLoading(false);
       // console.log(response.data);
     } catch (error) {
       setError(error);
       alert("There is an error: " + error.message);
       // console.error(error);
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -42,10 +42,10 @@ const useFetch = (endpoint, query) => {
 
   const refetch = () => {
     fetchData();
-    setLoading(true);
+    setIsLoading(true);
   };
 
-  return { data, error, loading, refetch };
+  return { data, error, isLoading, refetch };
 };
 
 export default useFetch;
