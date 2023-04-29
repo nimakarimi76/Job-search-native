@@ -1,6 +1,16 @@
-import { StyleSheet } from "react-native";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+import { COLORS, FONT, SIZES } from "../../constants";
 
-import { FONT, SIZES, COLORS } from "../../../constants";
+const Nearbyjobs = () => {
+  return (
+    <View>
+      <Text>Nearbyjobs</Text>
+    </View>
+  );
+};
+
+export default Nearbyjobs;
 
 const styles = StyleSheet.create({
   container: {
@@ -10,6 +20,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginTop: SIZES.small,
   },
   headerTitle: {
     fontSize: SIZES.large,
@@ -23,7 +34,6 @@ const styles = StyleSheet.create({
   },
   cardsContainer: {
     marginTop: SIZES.medium,
+    gap: SIZES.small,
   },
 });
-
-export default styles;
