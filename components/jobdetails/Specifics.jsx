@@ -1,6 +1,25 @@
-import { StyleSheet } from "react-native";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+import { COLORS, FONT, SIZES } from "../../constants";
 
-import { COLORS, FONT, SIZES } from "../../../constants";
+const Specifics = ({ title, points }) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>{title}:</Text>
+
+      <View style={styles.pointsContainer}>
+        {points.map((item, index) => (
+          <View style={styles.pointWrapper} key={item + index}>
+            <View style={styles.pointDot} />
+            <Text style={styles.pointText}>{item}</Text>
+          </View>
+        ))}
+      </View>
+    </View>
+  );
+};
+
+export default Specifics;
 
 const styles = StyleSheet.create({
   container: {
@@ -37,5 +56,3 @@ const styles = StyleSheet.create({
     marginLeft: SIZES.small,
   },
 });
-
-export default styles;

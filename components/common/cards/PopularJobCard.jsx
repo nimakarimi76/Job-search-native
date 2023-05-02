@@ -8,7 +8,7 @@ const PopularJobCard = ({ item, selectedJob, handleCardPress }) => {
   return (
     <TouchableOpacity
       style={styles.container(selectedJob, item)}
-      onPress={() => {}}
+      onPress={() => handleCardPress(item)}
     >
       <TouchableOpacity
         style={styles.logoContainer(selectedJob, item)}
@@ -24,7 +24,6 @@ const PopularJobCard = ({ item, selectedJob, handleCardPress }) => {
           style={styles.logoImage}
         />
       </TouchableOpacity>
-
       <Text style={styles.companyName} numberOfLines={1}>
         {item.employer_name}
       </Text>
@@ -33,18 +32,16 @@ const PopularJobCard = ({ item, selectedJob, handleCardPress }) => {
         <Text style={styles.jobName(selectedJob, item)} numberOfLines={1}>
           {item.job_title}
         </Text>
-
-        <Text style={styles.location} numberOfLines={1}>
-          {item.job_country}
-        </Text>
-        <Text style={styles.publisher} numberOfLines={1}>
-          {item.job_publisher}
-        </Text>
+        <View style={styles.infoWrapper}>
+          <Text style={styles.publisher(selectedJob, item)}>
+            {item?.job_publisher} -
+          </Text>
+          <Text style={styles.location}> {item.job_country}</Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
 };
-
 export default PopularJobCard;
 
 const styles = StyleSheet.create({
@@ -99,10 +96,5 @@ const styles = StyleSheet.create({
     fontSize: SIZES.medium - 2,
     fontFamily: FONT.regular,
     color: "#B3AEC6",
-  },
-  publisher: {
-    fontSize: SIZES.small,
-    fontFamily: FONT.regular,
-    color: COLORS.secondary,
   },
 });

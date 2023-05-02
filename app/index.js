@@ -9,6 +9,7 @@ import {
   ScreenHeaderBtn,
   Welcome,
 } from "../components";
+import JobDetails from "./job-details/[id]";
 
 const Home = () => {
   const router = useRouter();
@@ -35,8 +36,9 @@ const Home = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ flex: 1, padding: SIZES.medium }}>
           <Welcome />
-          <Popularjobs />
-          <Nearbyjobs />
+          {/* <Popularjobs /> */}
+          {/* <Nearbyjobs /> */}
+          {/* <JobDetails /> */}
         </View>
       </ScrollView>
     </SafeAreaView>

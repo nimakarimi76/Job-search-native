@@ -22,6 +22,10 @@ const Popularjobs = () => {
 
   const [selectedJob, setSelectedJob] = useState();
 
+  const handleCardPress = (item) => {
+    router.push(`/job-details/${item.job_id}`);
+    setSelectedJob(item.job_id);
+  };
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -45,12 +49,11 @@ const Popularjobs = () => {
             horizontal
             contentContainerStyle={{ columnGap: SIZES.medium }}
             renderItem={({ item }) => (
-              <TouchableOpacity
-                style={styles.card}
-                // onPress={() => router.push(`/job/${item.id}`)}
-              >
-                <PopularJobCard item={item} selectedJob={item} />
-              </TouchableOpacity>
+              <PopularJobCard
+                item={item}
+                selectedJob={selectedJob}
+                handleCardPress={handleCardPress}
+              />
             )}
           />
         )}
